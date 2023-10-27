@@ -1,6 +1,6 @@
 package com.company.ecommerce.entity;
 
-import java.util.List;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,9 +16,9 @@ public class Customer {
     private String phoneNumber;
     private String email;
     private String address;
-
+    /*
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
-
+*/
 
 }

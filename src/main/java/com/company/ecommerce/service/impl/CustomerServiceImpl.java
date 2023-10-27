@@ -21,7 +21,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
-    	List<Customer> list=customerRepository.findAll();
+    	List<Customer> list=customerRepository.findAllCustomers();
+    	//System.out.println(list);
     	return list;
         
     }

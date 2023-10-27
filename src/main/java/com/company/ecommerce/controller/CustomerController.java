@@ -33,10 +33,10 @@ public class CustomerController {
     }
 
     @GetMapping("/getall")
-    public ResponseEntity<List<Customer>> getAllCustomers() {
+    public ResponseEntity<?> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();
         if (customers.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No Data",HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
