@@ -11,5 +11,7 @@ import com.company.ecommerce.entity.Order;
 public interface OrderRepository extends JpaRepository<Order,Integer>{
 	@Query("SELECT o FROM Order o")
     List<Order> findAllOrders();
+	List<Order> findByPaymentStatus(String paymentStatus);
+    Order findByTransactionId(String transactionId);
 
 }

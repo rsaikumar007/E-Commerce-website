@@ -1,5 +1,8 @@
 package com.company.ecommerce.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -52,4 +55,21 @@ public class ProductController {
         String message = productService.deleteProduct(id);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
-}
+    
+    @GetMapping("/getProductByName/{productName}")
+    public ResponseEntity<Product> getProductByName(@PathVariable("productName") String productName) {
+        try {
+            productName = URLDecoder.decode(productName, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException e) {
+            System.out.println(e);;
+        }
+
+        Product product = productService.getProductByName(productName);
+
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.status(404).body(null); 
+        }
+    }
+    }

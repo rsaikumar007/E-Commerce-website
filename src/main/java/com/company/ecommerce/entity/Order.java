@@ -19,6 +19,9 @@ public class Order {
     private Integer orderId;
     private Date orderDate;
     private Double totalAmount;
+    private String paymentMethod; 
+    private String paymentStatus; 
+    private String transactionId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
